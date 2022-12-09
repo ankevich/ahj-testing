@@ -13,6 +13,7 @@ validateButton.addEventListener("click", function () {
     alert("Номер карты введен неверно");
     return false;
   }
+  alert("Все верно");
 });
 
 function luhnAlgorithm(value) {

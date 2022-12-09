@@ -17,6 +17,11 @@ body {
   float: left;
 }
 
+.card.disabled {
+  background-position: 0 -25px;
+  opacity: 0.3;
+}
+
 .card.visa {
   background-image: url(../img/card-visa.gif);
 }
