@@ -2,13 +2,13 @@ const validateButton = document.querySelector('#submitform');
 
 validateButton.addEventListener('click', () => {
   const cardNumber = document.querySelector('#card_number').value;
-  // проверка на валидность номера карты
-  if (cardNumber.length !== 16) {
-    alert('Номер карты должен состоять из 16 цифр');
+  // eslint-disable-next-line no-restricted-globals
+  if (isNaN(cardNumber)) {
+    alert('Номер карты должен состоять из цифр');
     return false;
   }
-  if (Number.isNaN(cardNumber)) {
-    alert('Номер карты должен состоять из цифр');
+  if (cardNumber.length !== 16) {
+    alert('Номер карты должен состоять из 16 цифр');
     return false;
   }
   // eslint-disable-next-line no-use-before-define
