@@ -1,30 +1,35 @@
-const validateButton = document.querySelector("#submitform");
+const validateButton = document.querySelector('#submitform');
 
-validateButton.addEventListener("click", function () {
-  const cardNumber = document.querySelector("#card_number").value;
-  //проверка на валидность номера карты
+validateButton.addEventListener('click', () => {
+  const cardNumber = document.querySelector('#card_number').value;
+  // проверка на валидность номера карты
   if (cardNumber.length !== 16) {
-    alert("Номер карты должен состоять из 16 цифр");
-    return false;
-  } else if (isNaN(cardNumber)) {
-    alert("Номер карты должен состоять из цифр");
-    return false;
-  } else if (!luhnAlgorithm(cardNumber)) {
-    alert("Номер карты введен неверно");
+    alert('Номер карты должен состоять из 16 цифр');
     return false;
   }
-  alert("Все верно");
+  if (Number.isNaN(cardNumber)) {
+    alert('Номер карты должен состоять из цифр');
+    return false;
+  }
+  // eslint-disable-next-line no-use-before-define
+  if (!luhnAlgorithm(cardNumber)) {
+    alert('Номер карты введен неверно');
+    return false;
+  }
+  alert('Все верно');
 });
 
 function luhnAlgorithm(value) {
-  value = value.replace(/\D/g, "");
+  // eslint-disable-next-line no-param-reassign
+  value = value.replace(/\D/g, '');
 
-  var nCheck = 0;
-  var bEven = false;
+  let nCheck = 0;
+  let bEven = false;
+  // eslint-disable-next-line no-plusplus
+  for (let n = value.length - 1; n >= 0; n--) {
+    let nDigit = parseInt(value.charAt(n), 10);
 
-  for (var n = value.length - 1; n >= 0; n--) {
-    var nDigit = parseInt(value.charAt(n), 10);
-
+    // eslint-disable-next-line no-cond-assign
     if (bEven && (nDigit *= 2) > 9) {
       nDigit -= 9;
     }
@@ -33,5 +38,5 @@ function luhnAlgorithm(value) {
     bEven = !bEven;
   }
 
-  return nCheck % 10 == 0;
+  return nCheck % 10 === 0;
 }

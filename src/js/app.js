@@ -1,2 +1,2 @@
-import './validator.js';
-import './card-checking.js';
+import './validator';
+import './card-checking';
