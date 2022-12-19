@@ -48,7 +48,8 @@
   },
   "jest": {
     "testPathIgnorePatterns": [
-      "<rootDir>/e2e"
+      "/node_modules/",
+      "/e2e/"
     ]
   }
 }
